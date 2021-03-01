@@ -2,6 +2,7 @@ package edu.temple.lab4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Resources resources = getResources();
+        getSupportActionBar().setTitle("Assignment 4");
 
         String def="Select a breed:";
         String dog1="Labrador";
@@ -52,7 +54,9 @@ public class SelectionActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if(check) {
-                    check = true;
+                    Intent launchIntent = new Intent(SelectionActivity.this, DisplayActivity.class);
+                    launchIntent.putExtra("position", picArray.get(position));
+                    startActivity(launchIntent);
                 }
                 check = true;
             }
