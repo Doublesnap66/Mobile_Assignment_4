@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab4">
-        <activity android:name=".SelectionActivity">
+        <activity android:name=".DisplayActivity"></activity>
+        <activity android:name=".SelectionActivity"
+            android:label="Dog Image Viewer App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
