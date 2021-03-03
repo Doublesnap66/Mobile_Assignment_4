@@ -46,17 +46,20 @@ public class SelectionActivity extends AppCompatActivity {
         picArray.add(dog3_img);
         picArray.add(dog4_img);
 
-        Spinner s = findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner);
         ImageAdapter adapter = new ImageAdapter(this, arraySpinner, picArray);
-        s.setAdapter(adapter);
-        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             Boolean check = false;
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if(check) {
-                    Intent launchIntent = new Intent(SelectionActivity.this, DisplayActivity.class);
-                    launchIntent.putExtra("position", picArray.get(position));
-                    startActivity(launchIntent);
+                    if(position > 0) {
+                        Intent launchIntent = new Intent(SelectionActivity.this, DisplayActivity.class);
+                        launchIntent.putExtra("position", picArray.get(position));
+                        launchIntent.putExtra("value", arraySpinner.get(position));
+                        startActivity(launchIntent);
+                    }
                 }
                 check = true;
             }
@@ -65,5 +68,12 @@ public class SelectionActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setSelection(0);
     }
 }
