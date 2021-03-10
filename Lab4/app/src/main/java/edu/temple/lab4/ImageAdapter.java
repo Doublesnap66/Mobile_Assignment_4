@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,20 +39,20 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ImageView imageView;
+
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.spinner_value_layout, null);
+            imageView = new ImageView(this.context);
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(85, 85));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setPadding(8, 8, 8, 8);
+        }
+        else {
+            imageView = (ImageView) convertView;
         }
 
-        TextView textView = (TextView) convertView.findViewById(R.id.spinnerTextView);
-        textView.setText(items.get(position));
-
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.spinnerImages);
-        if (position != 0) {
-            imageView.setImageResource(pics.get(position));
-        }
-
-        return convertView;
+        imageView.setImageResource(this.pics.get(position));
+        return imageView;
     }
 
 }
