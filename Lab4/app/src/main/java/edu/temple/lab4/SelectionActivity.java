@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -32,12 +33,12 @@ public class SelectionActivity extends AppCompatActivity {
         int dog3_img = R.drawable.dog3;
         int dog4_img = R.drawable.dog4;
 
-        ArrayList<String> arraySpinner = new ArrayList<String>();
-        arraySpinner.add(def);
-        arraySpinner.add(dog1);
-        arraySpinner.add(dog2);
-        arraySpinner.add(dog3);
-        arraySpinner.add(dog4);
+        ArrayList<String> arrayGridView = new ArrayList<String>();
+        arrayGridView.add(def);
+        arrayGridView.add(dog1);
+        arrayGridView.add(dog2);
+        arrayGridView.add(dog3);
+        arrayGridView.add(dog4);
 
         ArrayList<Integer> picArray = new ArrayList<Integer>();
         picArray.add(null);
@@ -46,10 +47,10 @@ public class SelectionActivity extends AppCompatActivity {
         picArray.add(dog3_img);
         picArray.add(dog4_img);
 
-        Spinner spinner = findViewById(R.id.spinner);
-        ImageAdapter adapter = new ImageAdapter(this, arraySpinner, picArray);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        GridView gridView = findViewById(R.id.grid);
+        ImageAdapter adapter = new ImageAdapter(this, arrayGridView, picArray);
+        gridView.setAdapter(adapter);
+        gridView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             Boolean check = false;
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -57,7 +58,7 @@ public class SelectionActivity extends AppCompatActivity {
                     if(position > 0) {
                         Intent launchIntent = new Intent(SelectionActivity.this, DisplayActivity.class);
                         launchIntent.putExtra("position", picArray.get(position));
-                        launchIntent.putExtra("value", arraySpinner.get(position));
+                        launchIntent.putExtra("value", arrayGridView.get(position));
                         startActivity(launchIntent);
                     }
                 }
@@ -73,7 +74,7 @@ public class SelectionActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Spinner spinner = findViewById(R.id.spinner);
-        spinner.setSelection(0);
+        GridView gridView = findViewById(R.id.grid);
+        gridView.setSelection(0);
     }
 }

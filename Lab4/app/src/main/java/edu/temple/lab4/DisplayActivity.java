@@ -21,15 +21,11 @@ public class DisplayActivity extends AppCompatActivity {
         if (pic >= 0) {
             ImageView imageView = findViewById(R.id.imageView);
             imageView.setImageResource(pic);
+            imageView.setZ(5);
 
             TextView textView = findViewById((R.id.second_textView));
             textView.setText(value);
+            textView.setZ(10);
         }
-        findViewById(R.id.closeButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

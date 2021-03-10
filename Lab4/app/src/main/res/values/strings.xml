@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lab4</string>
+    <string name="instructions">Click an Image Below</string>
 </resources>
