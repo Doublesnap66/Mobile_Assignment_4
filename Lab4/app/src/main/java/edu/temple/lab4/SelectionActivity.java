@@ -53,7 +53,7 @@ public class SelectionActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if(position > 0) {
+                if(position >= 0) {
                     Intent launchIntent = new Intent(SelectionActivity.this, DisplayActivity.class);
                     launchIntent.putExtra("position", picArray.get(position));
                     launchIntent.putExtra("value", arrayGridView.get(position));

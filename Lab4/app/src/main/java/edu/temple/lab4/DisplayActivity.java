@@ -25,7 +25,7 @@ public class DisplayActivity extends AppCompatActivity {
 
             TextView textView = findViewById((R.id.second_textView));
             textView.setText(value);
-            textView.setZ(10);
+            textView.setZ(95);
         }
     }
 }
