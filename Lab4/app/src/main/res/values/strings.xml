@@ -1,4 +1,12 @@
 <resources>
-    <string name="app_name">Lab4</string>
+    <string name="app_name">Lab 6</string>
     <string name="instructions">Click an Image Below</string>
+    <string name="dog1">Labrador</string>
+    <string name="dog2">German Shepard</string>
+    <string name="dog3">Bulldog</string>
+    <string name="dog4">Rottweiler</string>
+    <string name="dog5">Boxer</string>
+    <string name="dog6">Poodle</string>
+    <string name="dog7">Husky</string>
+    <string name="dog8">Retriever</string>
 </resources>

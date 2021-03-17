@@ -13,13 +13,15 @@ import java.util.ArrayList;
 
 public class ImageAdapter extends BaseAdapter {
     private Context context; //context
-    private ArrayList<String> items; //data source of the list adapter
+    private ArrayList<Integer> items; //data source of the list adapter
     private ArrayList<Integer> pics;
+    private static LayoutInflater inflater=null;
 
-    public ImageAdapter(Context context, ArrayList<String> items, ArrayList<Integer> pics) {
+    public ImageAdapter(Context context, ArrayList<Integer> items, ArrayList<Integer> pics) {
         this.context = context;
         this.items = items;
         this.pics = pics;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -37,22 +39,37 @@ public class ImageAdapter extends BaseAdapter {
         return position;
     }
 
+    public class Holder
+    {
+        TextView tv;
+        ImageView img;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        Holder holder=new Holder();
+        View rowView;
 
+        rowView = inflater.inflate(R.layout.item_layout, null);
+
+        ImageView imageView;
         if (convertView == null) {
-            imageView = new ImageView(this.context);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(200, 200));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+            holder.tv=(TextView) rowView.findViewById(R.id.textView1);
+            holder.img=(ImageView) rowView.findViewById(R.id.imageView1);
+
+            holder.tv.setText(items.get(position));
+            holder.img.setImageResource(pics.get(position));
+
+            //holder.img.setLayoutParams(new ViewGroup.LayoutParams(200, 200));
+            holder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            holder.img.setPadding(8, 8, 8, 8);
+
         }
         else {
-            imageView = (ImageView) convertView;
+            rowView = convertView;
         }
 
-        imageView.setImageResource(this.pics.get(position));
-        return imageView;
+        return rowView;
     }
 
 }

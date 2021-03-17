@@ -22,29 +22,45 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Resources resources = getResources();
-        getSupportActionBar().setTitle("Assignment 5");
+        getSupportActionBar().setTitle("Assignment 6");
 
-        String dog1="Labrador";
-        String dog2="German Shepard";
-        String dog3="Bulldog";
-        String dog4="Rottweiler";
+        int dog1=R.string.dog1;
+        int dog2=R.string.dog2;
+        int dog3=R.string.dog3;
+        int dog4=R.string.dog4;
+        int dog5=R.string.dog5;
+        int dog6=R.string.dog6;
+        int dog7=R.string.dog7;
+        int dog8=R.string.dog8;
 
         int dog1_img = R.drawable.dog1;
         int dog2_img = R.drawable.dog2;
         int dog3_img = R.drawable.dog3;
         int dog4_img = R.drawable.dog4;
+        int dog5_img = R.drawable.dog5;
+        int dog6_img = R.drawable.dog6;
+        int dog7_img = R.drawable.dog7;
+        int dog8_img = R.drawable.dog8;
 
-        ArrayList<String> arrayGridView = new ArrayList<String>();
+        ArrayList<Integer> arrayGridView = new ArrayList<Integer>();
         arrayGridView.add(dog1);
         arrayGridView.add(dog2);
         arrayGridView.add(dog3);
         arrayGridView.add(dog4);
+        arrayGridView.add(dog5);
+        arrayGridView.add(dog6);
+        arrayGridView.add(dog7);
+        arrayGridView.add(dog8);
 
         ArrayList<Integer> picArray = new ArrayList<Integer>();
         picArray.add(dog1_img);
         picArray.add(dog2_img);
         picArray.add(dog3_img);
         picArray.add(dog4_img);
+        picArray.add(dog5_img);
+        picArray.add(dog6_img);
+        picArray.add(dog7_img);
+        picArray.add(dog8_img);
 
         GridView gridView = findViewById(R.id.grid);
 
