@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array
+        name="pets">
+        <item>Fish</item>
+        <item>Cat</item>
+        <item>Dog</item>
+        <item>Bird</item>
+        <item>Snake</item>
+        <item>Rabbit</item>
+        <item>Mouse</item>
+        <item>Lizard</item>
+    </string-array>
+    <string name="instructions">Click an Image Below</string>
+</resources>

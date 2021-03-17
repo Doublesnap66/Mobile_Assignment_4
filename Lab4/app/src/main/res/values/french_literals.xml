@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="french_pets">
+        <item>Poisson</item>
+        <item>Chat</item>
+        <item>Chien</item>
+        <item>Oiseau</item>
+        <item>Serpent</item>
+        <item>Souris</item>
+        <item>Lapin</item>
+        <item>Lézard</item>
+    </string-array>
+    <string name="french_instructions">Cliquez sur une image ci-dessous. </string>
+</resources>
