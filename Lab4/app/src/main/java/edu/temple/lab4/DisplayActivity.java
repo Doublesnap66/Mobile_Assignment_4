@@ -17,7 +17,7 @@ public class DisplayActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int pic = intent.getIntExtra("position", -1);
-        int value = intent.getIntExtra("value", -1);
+        String value = intent.getStringExtra("value");
         if (pic >= 0) {
             ImageView imageView = findViewById(R.id.imageView);
             imageView.setImageResource(pic);

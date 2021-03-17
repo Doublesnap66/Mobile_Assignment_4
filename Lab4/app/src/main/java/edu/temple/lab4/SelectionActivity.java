@@ -2,7 +2,6 @@ package edu.temple.lab4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -10,10 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SelectionActivity extends AppCompatActivity {
 
@@ -23,44 +22,47 @@ public class SelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Resources resources = getResources();
         getSupportActionBar().setTitle("Assignment 6");
+        String[] pets = {};
+        Log.d("test language", Locale.getDefault().getLanguage());
+        if (Locale.getDefault().getLanguage().equals("fr")) {
+            TextView view = (TextView) findViewById(R.id.textView);
+            view.setText(resources.getString(R.string.french_instructions));
+            pets = resources.getStringArray(R.array.french_pets);
+        }
+        else {
+            TextView view = (TextView) findViewById(R.id.textView);
+            view.setText(resources.getString(R.string.instructions));
+            pets = resources.getStringArray(R.array.pets);
+        }
 
-        int dog1=R.string.dog1;
-        int dog2=R.string.dog2;
-        int dog3=R.string.dog3;
-        int dog4=R.string.dog4;
-        int dog5=R.string.dog5;
-        int dog6=R.string.dog6;
-        int dog7=R.string.dog7;
-        int dog8=R.string.dog8;
+        int fish_img = R.drawable.fish;
+        int cat_img = R.drawable.cat;
+        int dog_img = R.drawable.dog;
+        int bird_img = R.drawable.bird;
+        int snake_img = R.drawable.snake;
+        int rabbit_img = R.drawable.rabbit;
+        int mouse_img = R.drawable.mouse;
+        int lizard_img = R.drawable.lizard;
 
-        int dog1_img = R.drawable.dog1;
-        int dog2_img = R.drawable.dog2;
-        int dog3_img = R.drawable.dog3;
-        int dog4_img = R.drawable.dog4;
-        int dog5_img = R.drawable.dog5;
-        int dog6_img = R.drawable.dog6;
-        int dog7_img = R.drawable.dog7;
-        int dog8_img = R.drawable.dog8;
-
-        ArrayList<Integer> arrayGridView = new ArrayList<Integer>();
-        arrayGridView.add(dog1);
-        arrayGridView.add(dog2);
-        arrayGridView.add(dog3);
-        arrayGridView.add(dog4);
-        arrayGridView.add(dog5);
-        arrayGridView.add(dog6);
-        arrayGridView.add(dog7);
-        arrayGridView.add(dog8);
+        ArrayList<String> arrayGridView = new ArrayList<String>();
+        arrayGridView.add(pets[0]);
+        arrayGridView.add(pets[1]);
+        arrayGridView.add(pets[2]);
+        arrayGridView.add(pets[3]);
+        arrayGridView.add(pets[4]);
+        arrayGridView.add(pets[5]);
+        arrayGridView.add(pets[6]);
+        arrayGridView.add(pets[7]);
 
         ArrayList<Integer> picArray = new ArrayList<Integer>();
-        picArray.add(dog1_img);
-        picArray.add(dog2_img);
-        picArray.add(dog3_img);
-        picArray.add(dog4_img);
-        picArray.add(dog5_img);
-        picArray.add(dog6_img);
-        picArray.add(dog7_img);
-        picArray.add(dog8_img);
+        picArray.add(fish_img);
+        picArray.add(cat_img);
+        picArray.add(dog_img);
+        picArray.add(bird_img);
+        picArray.add(snake_img);
+        picArray.add(rabbit_img);
+        picArray.add(mouse_img);
+        picArray.add(lizard_img);
 
         GridView gridView = findViewById(R.id.grid);
 

@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class ImageAdapter extends BaseAdapter {
     private Context context; //context
-    private ArrayList<Integer> items; //data source of the list adapter
+    private ArrayList<String> items; //data source of the list adapter
     private ArrayList<Integer> pics;
     private static LayoutInflater inflater=null;
 
-    public ImageAdapter(Context context, ArrayList<Integer> items, ArrayList<Integer> pics) {
+    public ImageAdapter(Context context, ArrayList<String> items, ArrayList<Integer> pics) {
         this.context = context;
         this.items = items;
         this.pics = pics;
